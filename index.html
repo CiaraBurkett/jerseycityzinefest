@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Jersey City Zine Fest | October 5 &amp; 6th, 2013!</title>
+    <meta name="description" content="Welcome to the online home of the first ever annual Jersey City Zine Fest!">
+    <link rel="stylesheet" href="http://static.tumblr.com/euhztgd/NIime4g4v/type.css" />
+    <link rel="stylesheet" href="http://static.tumblr.com/euhztgd/WkUme4g3l/reset.css" />
+    <link rel="stylesheet" href="http://static.tumblr.com/euhztgd/rVAme4g2n/grid.css" />
+
+    <style type="text/css">
+      /*  GLOBAL  */
+      body {
+        color: #333;
+      }
+
+      /*  HEADER  */
+    	header .logo img {
+    		margin-bottom: -6px;
+    		width: 80%;
+    	}
+    	header .logo {
+    		border-bottom: 1px solid #222;
+    		margin-bottom: 0;
+    		text-align: center;
+    	}
+
+      /*  NAV  */
+    	nav {
+    		border-bottom: 1px solid #222;
+    	}
+    	nav ul li {
+    		border-right: 1px dotted #222;
+    		display: inline-block;
+    		margin-right: 20px;
+    		padding-right: 20px;
+    		text-align: center;
+    	}
+    	nav ul li:last-child {
+    		border: none;
+    	}
+    	nav ul li a {
+    		color: #222;
+    		text-decoration: none;
+    	}
+
+      /*  INTRO  */
+      .intro {
+        background-color: #E8563C;
+        border-radius: 5px;
+        color: #FAFAFA;
+        padding: 20px;
+      }
+
+      /*  BLOG  */
+      .blog {
+        padding-top: 20px;
+      }
+
+      /*  POSTS  */
+    	#posts {
+    		list-style-type: none;
+    		padding: 0;
+    	}
+      .post {
+        margin-top: 60px;
+      }
+      .post h3 a {
+        color: #222;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="wrap">
+      <div class="grids">
+        <header class="grid-12">
+          <div class="logo"><img src="http://static.tumblr.com/rhdaz1g/Ystmin0tk/header-jczf.jpg"></div><!-- /logo -->
+          <nav>
+            <ul>
+              <li><a href="/">Home</a></li>
+              {block:HasPages}
+                {block:Pages}
+                  <li><a href="{URL}">{Label}</a></li>
+                {/block:Pages}
+              {/block:HasPages}
+            </ul>
+          </nav>
+        </header>
+
+        <section class="blog grid-two-thirds">
+        	<div class="intro">
+        		<h2>Welcome!</h2>
+						{block:Description}
+	        		<p>
+	        			{Description}
+	        		</p>
+        		{/block:Description}
+        	</div><!-- /intro -->
+
+        	<ol id="posts">
+            {block:Posts}
+                {block:Text}
+                    <li class="post text">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        {Body}
+
+                        {block:Date} 
+                          {TimeAgo}
+                        {/block:Date}
+                    </li>
+                {/block:Text}
+
+                {block:Photo}
+                    <li class="post photo">
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Photo}
+
+                {block:Panorama}
+                    <li class="post panorama">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Panorama}
+
+                {block:Photoset}
+                    <li class="post photoset">
+                        {Photoset-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Photoset}
+
+                {block:Quote}
+                    <li class="post quote">
+                        &#147;{Quote}&#148;
+
+                        {block:Source}
+                            <div class="source">{Source}</div>
+                        {/block:Source}
+                    </li>
+                {/block:Quote}
+
+                {block:Link}
+                    <li class="post link">
+                        <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </li>
+                {/block:Link}
+
+                {block:Chat}
+                    <li class="post chat">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}
+
+                                    {Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </li>
+                {/block:Chat}
+
+                {block:Video}
+                    <li class="post video">
+                        {Video-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Video}
+
+                {block:Audio}
+                    <li class="post audio">
+                        {AudioPlayerBlack}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Audio}
+            {/block:Posts}
+        </ol>
+        </section><!-- /blog grid-two-thirds -->
+
+        <aside class="grid-one-third">
+        	<div class="social">
+            <div>
+          		<h2>Like Us on Facebook!</h2>
+              <div class="fb-facepile" data-href="http://www.facebook.com/jerseycityzinefest" data-size="large" data-max-rows="4" data-width="300">
+              </div><!-- /fb-facepile -->
+            </div><!-- /facebook -->
+
+            <div>
+              <a class="twitter-timeline" href="https://twitter.com/jczinefest" data-widget-id="309321698669379584">Tweets by @jczinefest</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div><!-- twitter -->
+        	</div><!-- /social -->
+        </aside>
+      </div><!-- /grids -->
+
+      <footer>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            {block:HasPages}
+              {block:Pages}
+                <li><a href="{URL}">{Label}</a></li>
+              {/block:Pages}
+            {/block:HasPages}
+          </ul>
+        </nav>
+      </footer>
+    </div><!-- /wrap -->
+
+  </body>
+</html>
