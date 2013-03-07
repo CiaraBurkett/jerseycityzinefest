@@ -11,8 +11,11 @@
 
     <style type="text/css">
       /*  GLOBAL  */
+      @font-face { font-family: Indie; src: url('http://static.tumblr.com/gfrx7ja/dApmjavxt/indiepimptbs.ttf'); }
+
       body {
         color: #333;
+        font-weight: 300;
       }
       body h2 a {
         text-decoration: none;
@@ -41,14 +44,30 @@
       header nav ul li {
         border-radius: 5px;
         display: inline-block;
+        font-size: 12px;
         margin-right: 15px;
         padding: 5px;
+        text-transform: uppercase;
       }
       header nav ul li:hover {
         background-color: #699BAF;
       }
       header nav ul li a {
         color: #FAFAFA;
+        text-decoration: none;
+      }
+
+      footer nav {
+        text-align: center;
+      }
+      footer nav ul li {
+        display: inline-block;
+        font-size: 10px;
+        margin-right: 10px;
+        text-transform: uppercase;
+      }
+      footer nav ul li a {
+        color: #E0AB87;
         text-decoration: none;
       }
 
@@ -72,6 +91,9 @@
     	}
       .post {
         margin-top: 60px;
+      }
+      .post h3 {
+        font-family: Indie, sans-serif;
       }
       .post h3 a {
         color: #222;
