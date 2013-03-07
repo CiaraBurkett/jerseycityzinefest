@@ -240,6 +240,27 @@
       </div><!-- /grids -->
 
       <footer>
+
+        <div class="pages">
+
+          {block:Pagination}
+
+          {block:PreviousPage}
+            <div class="previous grid-half">
+              <a href="{PreviousPage}">Previous</a>
+            </div><!-- /previous -->
+          {/block:PreviousPage}
+
+          {block:NextPage}
+            <div class="next grid-half">
+              <a href="{NextPage}">Next</a>
+            </div><!-- /next -->
+          {/block:NextPage}
+
+          {/block:Pagination}
+
+        </div><!-- /pages -->
+
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
